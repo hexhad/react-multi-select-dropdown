@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "./Dropdown.css";
+import "./Dropdown.scss";
 import { resposnse } from "../api/uss";
 
 export default function Dropdown() {
@@ -12,6 +12,7 @@ export default function Dropdown() {
   );
 
   const dropdownRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const onClick = (e) => {
@@ -35,8 +36,12 @@ export default function Dropdown() {
   return (
     <>
       <button
+      className="dropdown-button"
+      ref={buttonRef}
         onClick={(e) => {
           e.stopPropagation();
+          const { offsetLeft , offsetTop,offsetWidth } = buttonRef.current
+          console.log(offsetLeft, offsetTop,offsetWidth);
           setIsVisible((prev) => !prev);
         }}
       >
@@ -79,11 +84,11 @@ export default function Dropdown() {
           onClick={(e) => e.stopPropagation()}
           className="panel"
         >
-          <input type={"text"} onChange={filterContent} />
+          <input type={"text"} className="dropdown-search" onChange={filterContent} />
           {resposnse.map((item) => (
             <fieldset
               key={item.abbreviation}
-              className={selectedItems[item.abbreviation] ? `selected` : ""}
+              className={`dropdown-item ${selectedItems[item.abbreviation] ? "selected" : ""} `}
             >
               <input
                 onChange={(e) =>
