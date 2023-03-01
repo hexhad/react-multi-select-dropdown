@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./Dropdown.scss";
-import { resposnse } from "../api/uss";
+import { resposnse } from "../api/api";
 
 export default function Dropdown() {
   const [isVisible, setIsVisible] = useState(false);
