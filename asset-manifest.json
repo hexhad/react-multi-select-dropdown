@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-multi-select-dropdown/static/css/main.84699748.css",
+    "main.js": "/react-multi-select-dropdown/static/js/main.d9a0417a.js",
+    "index.html": "/react-multi-select-dropdown/index.html",
+    "main.84699748.css.map": "/react-multi-select-dropdown/static/css/main.84699748.css.map",
+    "main.d9a0417a.js.map": "/react-multi-select-dropdown/static/js/main.d9a0417a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.84699748.css",
+    "static/js/main.d9a0417a.js"
+  ]
+}
