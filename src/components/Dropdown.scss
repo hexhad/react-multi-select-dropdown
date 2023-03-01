@@ -1,22 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;500&display=swap');
+
+$sm : 100;
+$md : 200;
+$lg: 500;
+
+$base-font:'JetBrains Mono', monospace;
+$breakpoint-small: 768px;
+
+@mixin min-width($breakpoint) {
+  @if($breakpoint == small) {
+    @media (max-width: $breakpoint-small) {
+      @content;
+    }
+  }
+}
+
+.sm-font{
+  font-weight: $sm;
+  font-family: $base-font;
+}
+.md-font{
+  font-weight: $md;
+  font-family: $base-font;
+}
+.lg-font{
+  font-weight: $lg;
+  font-family: $base-font;
+}
+
 .selected {
-  background-color: rgb(27, 101, 136);
+  background-color: rgb(147, 148, 148) !important;
+  color: #fff;
+  border-radius: 3px;
+  input{
+   accent-color: rgb(204, 204, 204)
+  }
 }
 
 .dropdown-button {
   width: 200px;
-  height: 30px;
+  height: 40px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  background: #0080fd;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  @extend .lg-font;
   svg {
     width: 10px;
+    margin-left: 10px;
   }
 }
 
 .panel {
-  display: grid;
-  grid-template-columns: repeat(3, 33%);
+  padding: 0 1rem 2rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #fff;
-  height: 600px;
+  // height: 600px;
+  @include min-width(small) {
+    width: 90%;
+  }
   width: 600px;
   overflow-y: scroll;
+  border-radius: 3px;
   &::-webkit-scrollbar {
     width: 10px;
   }
@@ -31,9 +79,36 @@
   }
   .dropdown-search {
     grid-column: 1 / span 3;
+    margin: 2rem 0;
+    height: 2rem;
+    background-color: #e9e9e9;
+    border: none;
+    border-radius: 2px;
+    padding: 0 10px;
+    &:focus {
+      outline: none;
+    }
+    @extend .lg-font;
   }
+  .selections{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    gap: 5px;
   .dropdown-item {
+    background-color: #fcfcfc;
+    border-radius: 3px;
     border: none;
     text-align: left;
+    @extend .md-font;
+    font-size: 13px;
+    @include min-width(small) {
+      width: unset;
+    }
+    // width: 70%;
+    margin: 3px 0;
+    display: flex;
+    align-items: center;
   }
+}
 }
